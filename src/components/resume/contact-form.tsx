@@ -2,15 +2,21 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import { Field, Input, Select, Textarea } from "@/components/ui/field";
+import { Field, Input, Textarea } from "@/components/ui/field";
+import { Select } from "@/components/ui/select";
 import { TextLink } from "@/components/ui/text-link";
 import { profile } from "@/lib/resume";
 import { inquirySchema, type InquiryInput } from "@/lib/schemas";
 import type { ApiResult } from "@/lib/types";
 
 type InquiryResponse = ApiResult<{ mailto: string }>;
+
+const channelOptions = [
+  { value: "email", label: "Email" },
+  { value: "telegram", label: "Telegram" },
+] as const;
 
 export function ContactForm() {
   const [serverError, setServerError] = useState<string | null>(null);
@@ -48,7 +54,7 @@ export function ContactForm() {
   });
 
   return (
-    <form className="mt-6 grid gap-4" onSubmit={onSubmit} noValidate>
+    <form className="mt-6 grid gap-5" onSubmit={onSubmit} noValidate>
       <Field id="name" label="Имя" error={form.formState.errors.name?.message}>
         <Input
           id="name"
@@ -58,12 +64,21 @@ export function ContactForm() {
         />
       </Field>
 
-      <div className="grid gap-4 sm:grid-cols-[10rem_1fr]">
+      <div className="grid gap-5 sm:grid-cols-[10rem_1fr]">
         <Field id="channel" label="Канал" error={form.formState.errors.channel?.message}>
-          <Select id="channel" {...form.register("channel")}>
-            <option value="email">Email</option>
-            <option value="telegram">Telegram</option>
-          </Select>
+          <Controller
+            name="channel"
+            control={form.control}
+            render={({ field }) => (
+              <Select
+                id="channel"
+                value={field.value}
+                options={channelOptions}
+                onChange={field.onChange}
+                onBlur={field.onBlur}
+              />
+            )}
+          />
         </Field>
         <Field id="contact" label="Контакт" error={form.formState.errors.contact?.message}>
           <Input

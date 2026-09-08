@@ -24,16 +24,18 @@ type ResumeViewProps = {
 export function ResumeView({ githubProfile }: ResumeViewProps) {
   return (
     <main className="mx-auto my-10 w-[min(1080px,calc(100%-2.5rem))] border border-line bg-paper px-6 py-8 sm:px-10 sm:py-12 md:my-14">
-      <header className="mb-10 grid gap-x-14 border-b border-line pb-8 md:grid-cols-[17.5rem_minmax(0,1fr)]">
-        <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.28em] md:col-start-2 md:text-right">
-          {profile.role}
-        </p>
-        <h1 className="font-display text-[clamp(2.8rem,8vw,4.6rem)] font-medium uppercase leading-[0.95] tracking-[-0.03em] md:col-start-2">
-          {profile.name[0]}
-          <br />
-          {profile.name[1]}
-        </h1>
-      </header>
+      <Reveal>
+        <header className="mb-10 grid gap-x-14 border-b border-line pb-8 md:grid-cols-[17.5rem_minmax(0,1fr)]">
+          <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.28em] md:col-start-2 md:text-right">
+            {profile.role}
+          </p>
+          <h1 className="font-display text-[clamp(2.8rem,8vw,4.6rem)] font-medium uppercase leading-[0.95] tracking-[-0.03em] md:col-start-2">
+            {profile.name[0]}
+            <br />
+            {profile.name[1]}
+          </h1>
+        </header>
+      </Reveal>
 
       <div className="grid gap-x-14 md:grid-cols-[17.5rem_minmax(0,1fr)]">
         <aside className="md:border-b-0">
@@ -47,7 +49,7 @@ export function ResumeView({ githubProfile }: ResumeViewProps) {
             </Section>
           </Reveal>
 
-          <Reveal>
+          <Reveal delay={0.06}>
             <Section id="contacts" title="Контакты">
               <ul className="grid gap-2">
                 {contacts.map((contact) => (
@@ -71,7 +73,7 @@ export function ResumeView({ githubProfile }: ResumeViewProps) {
             </Section>
           </Reveal>
 
-          <Reveal>
+          <Reveal delay={0.1}>
             <Section id="awards" title="Награды">
               <article>
                 <h3 className="mb-1 text-[0.92rem] font-bold uppercase tracking-wide">
@@ -83,7 +85,7 @@ export function ResumeView({ githubProfile }: ResumeViewProps) {
             </Section>
           </Reveal>
 
-          <Reveal>
+          <Reveal delay={0.14}>
             <Section
               id="skills"
               title="Навыки"
@@ -144,7 +146,7 @@ export function ResumeView({ githubProfile }: ResumeViewProps) {
             <Section id="projects" title="Проекты">
               <ul className="grid gap-4">
                 {projects.map((project) => (
-                  <li key={project.href}>
+                  <li key={project.href} className="motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:translate-x-1">
                     <TextLink href={project.href} external className="font-semibold">
                       {project.host}
                     </TextLink>
@@ -180,11 +182,6 @@ export function ResumeView({ githubProfile }: ResumeViewProps) {
           </Reveal>
         </div>
       </div>
-
-      <p className="mt-12 text-xs text-muted">
-        Сайт резюме: Next.js, TypeScript, Tailwind CSS. Рендер — RSC и ISR, форма идёт через
-        route handler.
-      </p>
     </main>
   );
 }

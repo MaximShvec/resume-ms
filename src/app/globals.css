@@ -28,6 +28,12 @@ body {
   outline-offset: 3px;
 }
 
+input:focus-visible,
+textarea:focus-visible,
+[data-control]:focus-visible {
+  outline: none;
+}
+
 @media print {
   body {
     background: #fff;
