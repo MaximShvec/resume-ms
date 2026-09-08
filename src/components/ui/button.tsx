@@ -5,8 +5,9 @@ import { variant } from "@/lib/variants";
 type ButtonVariant = "primary" | "ghost";
 
 const buttonVariants = {
-  primary: "bg-ink text-paper hover:bg-black",
-  ghost: "border border-line bg-transparent text-ink hover:border-ink",
+  primary:
+    "border border-ink bg-ink text-paper hover:bg-transparent hover:text-ink",
+  ghost: "border border-line bg-transparent text-ink hover:border-ink hover:bg-soft",
 } as const satisfies Record<ButtonVariant, string>;
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {

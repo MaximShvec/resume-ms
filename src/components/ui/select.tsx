@@ -66,7 +66,10 @@ export function Select<T extends string>({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
-        className={cn(controlClass, "flex items-center justify-between gap-3 text-left")}
+        className={cn(
+          controlClass,
+          "flex items-center justify-between gap-3 text-left hover:border-ink",
+        )}
         onClick={() => setOpen((current) => !current)}
       >
         <span>{selected.label}</span>

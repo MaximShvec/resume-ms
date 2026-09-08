@@ -30,6 +30,7 @@ export type ExperienceRole = {
   place: string;
   summary: string;
   highlights: string[];
+  projects: Project[];
 };
 
 export type Project = {

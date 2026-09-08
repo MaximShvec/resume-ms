@@ -11,7 +11,6 @@ import {
   experience,
   ndaNote,
   profile,
-  projects,
   reasons,
   skills,
 } from "@/lib/resume";
@@ -40,7 +39,7 @@ export function ResumeView({ githubProfile }: ResumeViewProps) {
       <div className="grid gap-x-14 md:grid-cols-[17.5rem_minmax(0,1fr)]">
         <aside className="md:border-b-0">
           <Reveal>
-            <Section id="about" title="О себе">
+            <Section id="about" title="О себе" className="mt-0">
               <div className="grid gap-3.5">
                 {about.map((paragraph) => (
                   <p key={paragraph.slice(0, 24)}>{paragraph}</p>
@@ -107,7 +106,7 @@ export function ResumeView({ githubProfile }: ResumeViewProps) {
 
         <div>
           <Reveal>
-            <Section id="experience" title="Опыт работы">
+            <Section id="experience" title="Опыт работы" className="mt-0">
               <div className="grid">
                 {experience.map((job, index) => (
                   <article
@@ -122,39 +121,29 @@ export function ResumeView({ githubProfile }: ResumeViewProps) {
                     <ul className="mt-3.5 grid gap-2">
                       {job.highlights.map((item) => (
                         <li key={item} className="relative pl-4 before:absolute before:left-0 before:top-[0.7em] before:h-px before:w-1.5 before:bg-ink">
-                          {item.includes("specials.sports.ru") ? (
-                            <>
-                              Верстал промо-страницы и спецпроекты (
-                              <TextLink href="https://specials.sports.ru/nachtostavish/" external>
-                                specials.sports.ru/nachtostavish/
-                              </TextLink>
-                              )
-                            </>
-                          ) : (
-                            item
-                          )}
+                          {item}
                         </li>
                       ))}
                     </ul>
+                    {job.projects.length > 0 ? (
+                      <ul className="mt-5 grid gap-3">
+                        {job.projects.map((project) => (
+                          <li
+                            key={project.href}
+                            className="motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:translate-x-1"
+                          >
+                            <TextLink href={project.href} external className="font-semibold">
+                              {project.host}
+                            </TextLink>
+                            <p className="mt-0.5 text-muted">{project.description}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </article>
                 ))}
               </div>
-            </Section>
-          </Reveal>
-
-          <Reveal>
-            <Section id="projects" title="Проекты">
-              <ul className="grid gap-4">
-                {projects.map((project) => (
-                  <li key={project.href} className="motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:translate-x-1">
-                    <TextLink href={project.href} external className="font-semibold">
-                      {project.host}
-                    </TextLink>
-                    <p className="mt-0.5 text-muted">{project.description}</p>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 text-[0.9rem] text-muted">{ndaNote}</p>
+              <p className="mt-6 text-[0.9rem] text-muted">{ndaNote}</p>
             </Section>
           </Reveal>
 

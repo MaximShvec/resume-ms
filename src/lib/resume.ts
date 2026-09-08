@@ -2,7 +2,6 @@ import type {
   Award,
   ContactChannel,
   ExperienceRole,
-  Project,
   Reason,
   SkillGroup,
 } from "@/lib/types";
@@ -86,6 +85,13 @@ export const experience: ExperienceRole[] = [
       "Обеспечил кросс-браузерную совместимость и корректное отображение на всех типах устройств",
       "Проект получил награду Awwwards Site of the Day",
     ],
+    projects: [
+      {
+        href: "https://www.awwwards.com/sites/the-beyond",
+        host: "awwwards.com/sites/the-beyond",
+        description: "The Beyond — главный фронтенд для сайта, награждённого Awwwards",
+      },
+    ],
   },
   {
     title: "Frontend-разработчик",
@@ -99,74 +105,75 @@ export const experience: ExperienceRole[] = [
       "Участвовал в код-ревью и поддерживал высокое качество кодовой базы",
       "Работал с мультиязычными сайтами (ru/en/lv/de)",
     ],
+    projects: [
+      {
+        href: "https://balancepay.org/en",
+        host: "balancepay.org/en",
+        description: "Международная платёжная система. Вёрстка лендингов, адаптация под все устройства",
+      },
+      {
+        href: "https://my.balancepay.org/",
+        host: "my.balancepay.org",
+        description:
+          "Основной кабинет BalancePay. Сначала собрал на Vue, затем переписал на Next.js",
+      },
+      {
+        href: "https://anydaycharter.com/ru",
+        host: "anydaycharter.com/ru",
+        description: "Сервис аренды яхт. Разработка каталога с фильтрацией, интеграция с бэкендом",
+      },
+      {
+        href: "https://epbar.eu/en",
+        host: "epbar.eu/en",
+        description: "Европейский барный проект. Мультиязычный корпоративный сайт (ru/en/de/lv)",
+      },
+      {
+        href: "https://drumstarz.lv/lv",
+        host: "drumstarz.lv/lv",
+        description: "Музыкальная студия в Латвии. Портфолио, форма онлайн-записи, интеграция с CMS",
+      },
+    ],
   },
   {
     title: "Frontend-разработчик",
     place: "CSCase, Uniq-Cosmetic, GoldenInvestment, PulseofTG",
     summary:
-      "Выполнил полный цикл вёрстки для проектов в сфере недвижимости, косметики и инвестиций. Вёрстка выполнялась с прицелом на дальнейшую интеграцию в различные CMS.",
+      "Выполнил полный цикл вёрстки для проектов в сфере игр, косметики и инвестиций. Вёрстка выполнялась с прицелом на дальнейшую интеграцию в различные CMS.",
     highlights: [
       "Создавал компонентную архитектуру с использованием Vue.js (Vue CLI, Vuex)",
       "Разрабатывал сложные интерфейсы с формами обратной связи и калькуляторами",
-      "Верстал промо-страницы и спецпроекты (specials.sports.ru/nachtostavish/)",
+      "Верстал промо-страницы и спецпроекты",
       "Обеспечивал поддержку и развитие существующих проектов",
       "Работал с макетами в Adobe Photoshop и Illustrator",
     ],
-  },
-];
-
-export const projects: Project[] = [
-  {
-    href: "https://www.awwwards.com/sites/the-beyond",
-    host: "awwwards.com/sites/the-beyond",
-    description: "The Beyond — главный фронтенд для сайта, награждённого Awwwards",
-  },
-  {
-    href: "https://pulseoftg.me",
-    host: "pulseoftg.me",
-    description:
-      "Информационный портал / аналитический сервис. Разработка интерфейса, адаптивная вёрстка, интеграция с бэкендом",
-  },
-  {
-    href: "https://balancepay.org/en",
-    host: "balancepay.org/en",
-    description:
-      "Международная платёжная система. Вёрстка лендинга и личного кабинета, адаптация под все устройства",
-  },
-  {
-    href: "https://anydaycharter.com/ru",
-    host: "anydaycharter.com/ru",
-    description: "Сервис аренды яхт. Разработка каталога с фильтрацией, интеграция с бэкендом",
-  },
-  {
-    href: "https://epbar.eu/en",
-    host: "epbar.eu/en",
-    description: "Европейский барный проект. Мультиязычный корпоративный сайт (ru/en/de/lv)",
-  },
-  {
-    href: "https://drumstarz.lv/lv",
-    host: "drumstarz.lv/lv",
-    description: "Музыкальная студия в Латвии. Портфолио, форма онлайн-записи, интеграция с CMS",
-  },
-  {
-    href: "https://cscase.com",
-    host: "cscase.com",
-    description: "Кейтеринговая компания. Меню, корпоративный блог, адаптивная вёрстка",
-  },
-  {
-    href: "https://uniq-cosmetic.ru",
-    host: "uniq-cosmetic.ru",
-    description: "Косметический бренд. Интернет-магазин, каталог продукции, корзина",
-  },
-  {
-    href: "https://goldeninvestmentdeals.com",
-    host: "goldeninvestmentdeals.com",
-    description: "Инвестиционная платформа. Лендинг с калькулятором доходности",
-  },
-  {
-    href: "https://specials.sports.ru/nachtostavish/",
-    host: "specials.sports.ru/nachtostavish/",
-    description: "Спецпроект для Sports.ru. Промо-страница с анимацией и нестандартным дизайном",
+    projects: [
+      {
+        href: "https://cscase.com",
+        host: "cscase.com",
+        description: "Сервис кейсов для Counter-Strike. Разработка интерфейса, адаптивная вёрстка",
+      },
+      {
+        href: "https://uniq-cosmetic.ru",
+        host: "uniq-cosmetic.ru",
+        description: "Косметический бренд. Интернет-магазин, каталог продукции, корзина",
+      },
+      {
+        href: "https://goldeninvestmentdeals.com",
+        host: "goldeninvestmentdeals.com",
+        description: "Инвестиционная платформа. Лендинг с калькулятором доходности",
+      },
+      {
+        href: "https://pulseoftg.me",
+        host: "pulseoftg.me",
+        description:
+          "Информационный портал / аналитический сервис. Разработка интерфейса, адаптивная вёрстка, интеграция с бэкендом",
+      },
+      {
+        href: "https://specials.sports.ru/nachtostavish/",
+        host: "specials.sports.ru/nachtostavish/",
+        description: "Спецпроект для Sports.ru. Промо-страница с анимацией и нестандартным дизайном",
+      },
+    ],
   },
 ];
 
